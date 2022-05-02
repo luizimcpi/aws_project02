@@ -1,7 +1,6 @@
-FROM openjdk:15
+FROM adoptopenjdk/openjdk11
+LABEL maintainer="luizimcpi@gmail.com"
 VOLUME /tmp
-ARG DEPENDENCY=target/dependency
-COPY ${DEPENDENCY}/BOOT-INF/lib /app/lib
-COPY ${DEPENDENCY}/META-INF /app/META-INF
-COPY ${DEPENDENCY}/BOOT-INF/classes /app
-ENTRYPOINT ["java","-cp","app:app/lib/*","AwsProject02Application"]
+ARG JAR_FILE=target/rest-api-*.jar
+ADD ${JAR_FILE} rest-api.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/rest-api.jar"]
