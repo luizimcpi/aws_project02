@@ -1,6 +1,6 @@
 FROM adoptopenjdk/openjdk11
 LABEL maintainer="luizimcpi@gmail.com"
 VOLUME /tmp
-ARG JAR_FILE=target/rest-api-*.jar
-ADD ${JAR_FILE} rest-api.jar
-ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/rest-api.jar"]
+ARG JAR_FILE=target/aws_project02-*.jar
+ADD ${JAR_FILE} aws_project02.jar
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/aws_project02.jar"]
