@@ -20,7 +20,7 @@ import java.time.Instant;
 
 @Service
 public class ProductEventConsumer {
-    private static final Logger log = LoggerFactory.getLogger(
+    private static final Logger LOG = LoggerFactory.getLogger(
             ProductEventConsumer.class);
 
     private ObjectMapper objectMapper;
@@ -39,13 +39,19 @@ public class ProductEventConsumer {
         SnsMessage snsMessage = objectMapper.readValue(textMessage.getText(),
                 SnsMessage.class);
 
+        LOG.info("SNS Message deserialized: {}", snsMessage);
+
         Envelope envelope = objectMapper.readValue(snsMessage.getMessage(),
                 Envelope.class);
+
+        LOG.info("Envelope deserialized: {}", envelope);
 
         ProductEvent productEvent = objectMapper.readValue(
                 envelope.getData(), ProductEvent.class);
 
-        log.info("Product event received - Event: {} - ProductId: {} - MessageId: {}",
+        LOG.info("ProductEvent deserialized: {}", productEvent);
+
+        LOG.info("Product event received - Event: {} - ProductId: {} - MessageId: {}",
                 envelope.getEventType(),
                 productEvent.getProductId(),
                 snsMessage.getMessageId());

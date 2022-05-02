@@ -34,7 +34,7 @@
 
 ### 1- SEND SQS MESSAGE WITH TEMPLATE
 ```
-aws --endpoint-url=http://localhost:4566 sqs send-message --queue-url http://localhost:4566/queue/product-events --message-body "{\"Message\": {\"eventType\":\"PRODUCT_CREATED\",\"data\":\"teste criação\"},\"Type\":\"CREATION\",\"TopiArn\":\"arn:1234556666:1122323\",\"Timestamp\":\"1651514568622\",\"MessageId\":\"e5872d2b-1985-425a-b2a2-50bec46435e5\"}"
+aws --endpoint-url=http://localhost:4566 sqs send-message --queue-url http://localhost:4566/queue/product-events --message-body "{\"message\":{\"eventType\":\"PRODUCT_CREATED\",\"data\": {\"productId\": 1,\"code\":\"CODE1\",\"username\":\"matilde\"}},\"type\":\"Teste\",\"topicArn\":\"arn:test\",\"timestamp\":\"1651514568622\",\"messageId\":\"45444561-5317-4fbd-af68-b4269582ad51\"}"
 ```
 
 ### 2- CHECK PERSISTED DYNAMO EVENTS USING ENDPOINT

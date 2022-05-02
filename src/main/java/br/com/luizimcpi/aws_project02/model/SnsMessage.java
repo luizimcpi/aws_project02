@@ -59,4 +59,15 @@ public class SnsMessage {
     public void setMessageId(String messageId) {
         this.messageId = messageId;
     }
+
+    @Override
+    public String toString() {
+        return "SnsMessage{" +
+                "message='" + message + '\'' +
+                ", type='" + type + '\'' +
+                ", topicArn='" + topicArn + '\'' +
+                ", timestamp='" + timestamp + '\'' +
+                ", messageId='" + messageId + '\'' +
+                '}';
+    }
 }

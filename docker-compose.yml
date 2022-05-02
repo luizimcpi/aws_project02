@@ -12,8 +12,8 @@ services:
     depends_on:
       - localstack
   localstack:
-    network_mode: bridge
     image: localstack/localstack
+    container_name: localstack
     ports:
       - "4566:4566"
       - "4571:4571"
