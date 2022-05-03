@@ -18,7 +18,7 @@
 
 ```
 1 -> ./gradlew build 
-2 -> docker build -t aws-project-service .
+2 -> docker build -t luizimcpi/aws-project-service .
 3 -> docker-compose up
 ```
 
