@@ -35,7 +35,7 @@ public class JmsConfigLocal {
 
     @Bean
     public DefaultJmsListenerContainerFactory jmsListenerContainerFactory() {
-        createLocalQueue();
+//        createLocalQueue();
 
         sqsConnectionFactory = new SQSConnectionFactory(
                 new ProviderConfiguration(),
