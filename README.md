@@ -25,7 +25,9 @@ Run this commands inside project root folder
 
 ### 1- SEND SQS MESSAGE WITH TEMPLATE
 ```
-aws --endpoint-url=http://localhost:4566 sqs send-message --queue-url http://localhost:4566/queue/product-events --message-body "{\"Message\":{\"eventType\":\"PRODUCT_CREATED\",\"data\": {\"productId\": 1,\"code\":\"CODE1\",\"username\":\"matilde\"}},\"Type\":\"Teste\",\"TopicArn\":\"arn:test\",\"Timestamp\":\"1651514568622\",\"MessageId\":\"45444561-5317-4fbd-af68-b4269582ad51\"}"
+aws --endpoint-url=http://localhost:4566 sqs send-message --queue-url http://localhost:4566/queue/product-events --message-body "{"Type": "Notification", "MessageId": "9db951e0-a869-4980-8d7f-39f9bbf85d2d", "TopicArn": "arn:aws:sns:us-east-1:000000000000:product-events", "Message": "{\"eventType\":\"PRODUCT_CREATED\",\"data\":\"{\\\"productId\\\":1,\\\"code\\\":\\\"COD1\\\",\\\"username\\\":\\\"matilde\\\"}\"}", "Timestamp": "2022-05-03T20:58:22.297Z"}"
+
+aws --endpoint-url=http://localhost:4566 sqs send-message --queue-url http://localhost:4566/queue/product-events --message-body "{\"Type\": \"Notification\", \"MessageId\": \"9db951e0-a869-4980-8d7f-39f9bbf85d2d\", \"TopicArn\": \"arn:aws:sns:us-east-1:000000000000:product-events\", \"Message\": "{\"eventType\":\"PRODUCT_CREATED\",\"data\":\"{\\\"productId\\\":1,\\\"code\\\":\\\"COD1\\\",\\\"username\\\":\\\"matilde\\\"}\"}", \"Timestamp\": \"2022-05-03T20:58:22.297Z\"}"
 ```
 
 ### 2- CHECK PERSISTED DYNAMO EVENTS USING ENDPOINT
