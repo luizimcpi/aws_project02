@@ -23,6 +23,11 @@ Run this commands inside project root folder
 
 ## Testing
 
+### USE AWS PROJECT 01 - SEE README.md
+[AWS-PUBLISHER-PROJETC](https://github.com/luizimcpi/aws_project01)
+
+or
+
 ### 1- SEND SQS MESSAGE WITH TEMPLATE
 ```
 aws --endpoint-url=http://localhost:4566 sqs send-message --queue-url http://localhost:4566/queue/product-events --message-body "{"Type": "Notification", "MessageId": "9db951e0-a869-4980-8d7f-39f9bbf85d2d", "TopicArn": "arn:aws:sns:us-east-1:000000000000:product-events", "Message": "{\"eventType\":\"PRODUCT_CREATED\",\"data\":\"{\\\"productId\\\":1,\\\"code\\\":\\\"COD1\\\",\\\"username\\\":\\\"matilde\\\"}\"}", "Timestamp": "2022-05-03T20:58:22.297Z"}"
